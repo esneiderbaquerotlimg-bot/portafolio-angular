@@ -1,0 +1,18 @@
+<section class="detalle-wrap fade-up" style="padding:110px 24px;">
+  <button class="btn outline" (click)="volver()">Volver al Inicio</button>
+
+  <div style="margin-top:18px; max-width:900px; margin-left:auto; margin-right:auto;">
+    <h2>{{ proyecto.titulo }}</h2>
+    <img [src]="proyecto.imagen" alt="" style="width:100%; max-height:420px; object-fit:cover; border-radius:10px; margin-top:12px;">
+    <p style="margin-top:12px; color:var(--muted)">{{ proyecto.descripcion }}</p>
+
+    <div style="margin-top:14px"><strong>Tecnologías:</strong> {{ proyecto.tecnologias?.join(', ') }}</div>
+
+    <div style="margin-top:20px">
+      <a class="btn primary" [href]="proyecto.enlace || '#'" target="_blank">Visitar Proyecto</a>
+    </div>
+  </div>
+</section>
+
+
+

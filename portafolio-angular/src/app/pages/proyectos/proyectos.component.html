@@ -1,0 +1,59 @@
+<section class="proyectos-wrap fade-up">
+
+  <!-- Top Bar -->
+  <div class="top-row">
+    <h2>Proyectos</h2>
+  </div>
+
+  <!-- Grid de Proyectos -->
+  <div class="grid-proyectos">
+    <article class="card" *ngFor="let p of proyectos">
+      <img [src]="p.imagen" [alt]="p.titulo" class="card-img">
+      <div class="card-body">
+        <h3>{{ p.titulo }}</h3>
+        <p class="muted">{{ p.descripcion }}</p>
+<div class="card-actions">
+  <button class="btn outline" (click)="abrirArchivo(p)">
+    Abrir
+  </button>
+</div>
+
+      </div>
+    </article>
+  </div>
+
+  <!-- Botones de navegación -->
+  <div class="proyectos-nav">
+    <button class="nav-btn left" (click)="volver()">
+      ← Volver
+    </button>
+    <button class="nav-btn right" (click)="siguiente()">
+      Siguiente →
+    </button>
+  </div>
+
+  <!-- Modal de Detalles -->
+  <div *ngIf="modalOpen" class="app-modal" (click)="closeModal()">
+    <div class="modal-card" (click)="$event.stopPropagation()">
+      
+      <!-- Botón cerrar "X" -->
+      <button class="modal-close" (click)="closeModal()">×</button>
+
+      <div class="row">
+        <div class="col">
+          <img [src]="selected?.imagen || ''" [alt]="selected?.titulo || ''" class="modal-img">
+        </div>
+        <div class="col">
+          <h3>{{ selected?.titulo || '' }}</h3>
+          <p>{{ selected?.descripcion || '' }}</p>
+          <p><strong>Tecnologías:</strong> {{ selected?.tecnologias?.join(', ') || '' }}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+

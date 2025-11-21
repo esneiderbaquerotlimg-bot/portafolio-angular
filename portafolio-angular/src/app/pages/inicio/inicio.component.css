@@ -1,0 +1,32 @@
+.hero{display:flex;gap:28px;align-items:center;padding:60px 18px;background:linear-gradient(90deg,#07121a 0%, #071a20 60%);color:#fff}
+.hero-left{flex:1}
+.title{font-size:2.1rem;color:var(--cyan);margin-bottom:6px}
+.role{color:var(--muted);margin-bottom:14px}
+.lead{color:#c9d0d4;max-width:58%;line-height:1.6}
+.profile{width:260px;border-radius:14px;box-shadow:0 12px 40px rgba(0,234,255,0.06)}
+.ctas{margin-top:18px}
+.btn{display:inline-block;padding:10px 18px;border-radius:8px;text-decoration:none}
+.primary{background:var(--cyan);color:#032; font-weight:700}
+.outline{border:1px solid var(--cyan);color:var(--cyan);background:transparent}
+
+/* projects */
+.projects{padding:46px 18px}
+.projects h3{color:var(--cyan);margin-bottom:18px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:linear-gradient(180deg,#07121a,#081622);padding:18px;border-radius:12px;border:1px solid rgba(0,234,255,0.04);box-shadow:0 8px 28px rgba(0,0,0,0.4)}
+.card h4{color:#fff;margin-bottom:6px}
+.card p{color:#9fbfc0;font-size:14px}
+.card .links a{color:var(--cyan);margin-right:12px}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* typing cursor */
+.typing{border-right:3px solid var(--cyan);padding-right:6px;animation:blink 700ms steps(1) infinite}
+@keyframes blink{50%{border-color:transparent}}
+
+/* responsive */
+@media (max-width:900px){.hero{flex-direction:column;text-align:center}.lead{max-width:100%}.profile{width:200px;margin-top:18px}}
+
+

@@ -1,0 +1,327 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: rgba(5,6,10,0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* Contenido principal del header */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 25px;
+}
+
+/* Logo + Título */
+.logo img {
+  width: 50px;
+  height: 50px;
+}
+.titulo {
+  font-size: 1.8rem;
+  color: #00eaff;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* Menú a la derecha */
+.nav-menu {
+  display: flex;
+  gap: 150px;
+}
+.nav-link {
+  display: inline-block;
+  padding: 10px 18px;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 50%;
+  background: rgba(0,234,255,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.nav-link:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff, 0 0 30px #00eaff;
+}
+
+/* Burbujas animadas de fondo */
+.bubbles-container span {
+  position: absolute;
+  bottom: 0;
+  width: 15px;
+  height: 15px;
+  background: #00eaff;
+  border-radius: 50%;
+  animation: subir 8s infinite;
+  opacity: 0.5;
+}
+
+@keyframes subir {
+  0% { transform: translateY(0) scale(0.5); opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-200px) scale(1); opacity: 0; }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Menú estilo rectangular y brillante */
+.nav-menu {
+  display: flex;
+  gap: 15px;
+}
+
+/* Rectángulos brillantes */
+.nav-link {
+  display: inline-block;
+  padding: 12px 24px;                  /* Forma rectangular */
+  font-weight: 600;
+  color: #00eaff;                      /* Color azul brillante */
+  text-decoration: none;
+  border-radius: 8px;                  /* Bordes suaves */
+  background: rgba(0, 234, 255, 0.1); /* Fondo sutil */
+  box-shadow: 0 0 8px rgba(0,234,255,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animación de brillo pulsante */
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,234,255,0.4) 0%, transparent 70%);
+  opacity: 0.3;
+  transform: scale(0);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+  border-radius: 8px;
+}
+
+.nav-link:hover::before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Hover dinámico */
+.nav-link:hover {
+  transform: scale(1.1) translateY(-2px);
+  background: rgba(0,234,255,0.2);
+  box-shadow: 0 0 15px #00eaff, 0 0 30px #00eaff, 0 0 45px #00eaff;
+}
+
+/* Activo (puedes agregar la clase active con [routerLinkActive]) */
+.nav-link.active {
+  background: rgba(0,234,255,0.3);
+  box-shadow: 0 0 20px #00eaff, 0 0 35px #00eaff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav-link {
+    padding: 10px 18px;
+    margin-bottom: 6px;
+  }
+}
+
+/* Contenedor principal del header */
+.header-content {
+  display: flex;
+  justify-content: space-between;  /* Logo+Titulo a la izquierda, menú a la derecha */
+  align-items: center;
+  padding: 10px 20px;
+}
+
+/* Logo + título */
+.logo-titulo {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espacio entre el logo y el texto */
+}
+
+.logo-img {
+  width: 50px;  /* Ajusta al tamaño que quieras */
+  height: 50px;
+}
+
+.titulo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #00eaff;
+  text-shadow: 0 0 8px #00eaff;
+}
+
+/* Menú */
+.nav-menu {
+  display: flex;
+  gap: 15px;
+}
+
+/* Links estilo rectangular brillante (como ya configuramos antes) */
+.nav-link {
+  display: inline-block;
+  padding: 12px 24px;
+  font-weight: 600;
+  color: #00eaff;
+  text-decoration: none;
+  border-radius: 8px;
+  background: rgba(0, 234, 255, 0.1);
+  box-shadow: 0 0 8px rgba(0,234,255,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover dinámico */
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,234,255,0.4) 0%, transparent 70%);
+  opacity: 0.3;
+  transform: scale(0);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+  border-radius: 8px;
+}
+
+.nav-link:hover::before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.nav-link:hover {
+  transform: scale(1.1) translateY(-2px);
+  background: rgba(0,234,255,0.2);
+  box-shadow: 0 0 15px #00eaff, 0 0 30px #00eaff, 0 0 45px #00eaff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Estructura general del header */
+.header {
+  width: 100%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Izquierda - Derecha */
+  padding: 0 40px;
+  position: relative;
+  background: transparent;
+  z-index: 100;
+}
+
+/* Logo + texto juntos a la izquierda */
+.logo-titulo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+  margin-left: -590px; /* Mueve el logo + título a la derecha */
+}
+
+
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+
+.titulo {
+  font-size: 20px;
+  font-weight:600;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+/* Menú a la derecha */
+.nav-menu {
+  display: flex;
+  gap: 25px;
+}
+
+/* Estilo de cada link del menú */
+.nav-link {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: rgba(0, 140, 255, 0.35);
+  border: 2px solid rgba(0, 200, 255, 0.7);
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+
+/* Hover brillante */
+.nav-link:hover {
+  transform: scale(1.11);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.8), 0 0 25px rgba(0, 200, 255, 0.9);
+  background: rgba(0, 160, 255, 0.55);
+}
+
+
+.header {
+  background: rgba(0, 0, 0, 0.35); /* Transparencia suave */
+  backdrop-filter: blur(6px);      /* Difuminado elegante */
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header.scrolled {
+  background: rgba(0, 0, 0, 0.65);
+  box-shadow: 0 4px 18px rgba(0, 255, 255, 0.15);
+}
+
+

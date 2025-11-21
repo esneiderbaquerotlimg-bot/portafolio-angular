@@ -1,0 +1,752 @@
+/* Contenedor general */
+.proyectos-wrap { 
+  padding: 120px 28px 60px; 
+  max-width: 1100px; 
+  margin: 0 auto; 
+}
+
+/* Grid de proyectos */
+.grid-proyectos { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 20px; 
+}
+
+/* Tarjetas de proyectos con borde profesional y animación */
+.card { 
+  background: rgba(255,255,255,0.03); 
+  border-radius: 12px; 
+  overflow: hidden; 
+  box-shadow: 0 14px 40px rgba(0,0,0,0.5); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  border: 2px solid rgba(255,255,255,0.1); /* borde inicial sutil */
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
+  padding: 12px; 
+}
+
+.card:hover { 
+  transform: translateY(-8px);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.65); 
+  border: 2px solid #ffffff; /* borde profesional blanco */
+}
+
+/* Imagen de proyecto completa */
+.card-img { 
+  width: 100%; 
+  height: 200px; 
+  object-fit: contain; /* imagen completa */
+  display: block; 
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-img { 
+  transform: scale(1.05); /* zoom suave */
+}
+
+/* Card body */
+.card-body { 
+  padding: 12px 0; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch; 
+}
+
+.card-body h3 { 
+  margin: 0 0 8px 0; 
+  text-align: left;
+}
+
+.muted { 
+  color: var(--muted); 
+  font-size: .98rem; 
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+/* Botón "Ver Detalles" */
+.card-actions {
+  display: flex;
+  justify-content: flex-start; 
+}
+
+.card-actions .btn.outline {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  background: transparent;
+  color: #007bff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: auto; 
+  min-width: 140px; 
+  text-align: center;
+}
+
+.card-actions .btn.outline:hover {
+  background: #007bff;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Botones de navegación profesionales */
+.proyectos-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.nav-btn {
+  padding: 12px 28px;
+  border: 2px solid #0056b3; 
+  border-radius: 8px;
+  background: linear-gradient(90deg, #0056b3, #0077c2, #0056b3);
+  background-size: 200% 100%;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.nav-btn:hover {
+  transform: scale(1.05);
+  background-position: right center;
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.5);
+}
+
+.nav-btn::after {
+  content: '';
+  position: absolute;
+  top:0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0.15), rgba(255,255,255,0.0), rgba(255,255,255,0.15));
+  transform: skewX(-20deg);
+  transition: all 0.5s ease;
+}
+
+.nav-btn:hover::after {
+  left: 0;
+}
+
+/* Modal de detalles */
+.app-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.75);
+  display:flex;
+  justify-content:center;
+  align-items:flex-start; /* no se tapa el header */
+  padding-top: 60px; /* espacio para header transparente */
+  z-index: 3000; 
+}
+
+.modal-card {
+  background:#111;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 800px;
+  max-height: 80vh; 
+  width: 90%;
+  position: relative;
+  overflow-y: auto; 
+  animation: modalOpen 0.3s ease-out;
+  z-index: 3001; 
+}
+
+/* Scrollbar elegante */
+.modal-card::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-card::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05);
+  border-radius: 4px;
+}
+
+.modal-card::-webkit-scrollbar-thumb {
+  background: #0077c2;
+  border-radius: 4px;
+}
+
+.modal-card::-webkit-scrollbar-thumb:hover {
+  background: #00aaff;
+}
+
+@keyframes modalOpen {
+  0% { transform: scale(0.8); opacity:0; }
+  100% { transform: scale(1); opacity:1; }
+}
+
+/* Imagen dentro del modal */
+.modal-img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain; 
+  border-radius: 8px;
+  margin-bottom: 12px;
+  margin-top: 20px; /* separación superior */
+}
+
+/* Botón cerrar "X" siempre visible */
+.modal-close {
+  position: absolute;
+  top: 16px; 
+  right: 16px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: transform 0.2s ease, color 0.2s ease;
+  z-index: 3002; 
+}
+
+.modal-close:hover {
+  color: #0077c2; 
+  transform: scale(1.2);
+}
+
+/* Responsivo */
+@media(max-width:700px){
+  .proyectos-wrap { padding: 90px 14px; } 
+  .card-img { height: 160px; } 
+}
+
+/* Título de Proyectos */
+.top-row h2 {
+  font-size: 2rem; /* tamaño profesional */
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase; /* opcional, se ve más fuerte */
+  letter-spacing: 1px;
+  margin: 100;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Sombra sutil para dar profundidad */
+.top-row h2::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  background: #0077c2;
+  left: 0;
+  bottom: -6px;
+  transition: width 0.4s ease;
+  border-radius: 2px;
+}
+
+/* Al pasar el cursor sobre el título */
+.top-row h2:hover::after {
+  width: 17.9%; /* subraya la mitad del título con animación */
+}
+
+.top-row h2:hover {
+  color: #00aaff; /* cambio de color suave */
+}
+
+/* Animación de entrada sutil */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.top-row h2 {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+
+/* Botones de navegación de Proyectos con estilo azul PRO */
+.proyectos-nav .nav-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: rgba(0, 140, 255, 0.35);
+  border: 2px solid rgba(0, 200, 255, 0.7);
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  margin: 0 10px;
+}
+
+/* Hover brillante igual que los demás */
+.proyectos-nav .nav-btn:hover {
+  transform: scale(1.11);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.8), 
+              0 0 25px rgba(0, 200, 255, 0.9);
+  background: rgba(0, 160, 255, 0.55);
+}
+
+
+/* Título de cada proyecto (brillante, elegante) */
+.grid-proyectos .card h3 {
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  text-shadow: 0 0 6px rgba(0, 255, 255, 0.7),
+               0 0 12px rgba(0, 180, 255, 0.4);
+  transition: 0.3s ease-in-out;
+}
+
+/* Hover sobre la tarjeta aumenta el brillo del título */
+.grid-proyectos .card:hover h3 {
+  text-shadow: 0 0 10px rgba(0, 255, 255, 1),
+               0 0 20px rgba(0, 180, 255, 0.8);
+  transform: scale(1.04);
+}
+
+/* Descripción del proyecto (texto elegante y suave) */
+.grid-proyectos .card .muted {
+  color: rgba(255, 255, 255, 0.78);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 0.92rem;
+  line-height: 1.3rem;
+  letter-spacing: 0.3px;
+  margin-top: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+/* Cuando el usuario pasa el mouse sobre la tarjeta */
+.grid-proyectos .card:hover .muted {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Cards base */
+.grid-proyectos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.6rem;
+}
+
+/* Card */
+.card {
+  background: #101015;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, .12);
+}
+
+/* Cuerpo */
+.card-body {
+  padding: 1rem 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Imagen */
+.card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Acciones del Card */
+.card-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Botón Ver Detalles */
+.btn-outline {
+  padding: .55rem 1.1rem;
+  font-size: .85rem;
+  border: 1px solid #0ee2ff;
+  background: transparent;
+  color: #0ee2ff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background .25s ease, color .25s ease, transform .25s ease;
+}
+
+.btn-outline:hover {
+  background: #0ee2ff;
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* GRID */
+.grid-proyectos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: -100rem;
+}
+
+/* CARD */
+.card {
+  background: #101015;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* IMAGEN */
+.card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* CUERPO DEL CARD (TEXTO ALINEADO) */
+.card-body {
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  text-align: left;
+}
+
+/* BOTÓN */
+.card-actions {
+  margin-top: 1rem;
+}
+
+.btn.outline {
+  padding: .55rem 1.1rem;
+  font-size: .85rem;
+  border: 1px solid #0ee2ff;
+  background: transparent;
+  color: #0ee2ff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* TÍTULO EN UNA SOLA LÍNEA COMPLETA */
+.card-body h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap; /* IMPORTANTE */
+}
+
+/* DESCRIPCIÓN EN UNA SOLA LÍNEA COMPLETA */
+.card-body .muted {
+  margin: 0;
+  font-size: .85rem;
+  color: #bbb;
+  white-space: nowrap;  /* IMPORTANTE */
+}
+
+.grid-proyectos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 1.6rem;
+}
+
+.modal-card {
+  padding: 2.5rem 1.6rem 1.6rem; /* AUMENTA SOLO ARRIBA */
+}
+
+.modal-card h3 {
+  margin-top: 0.3rem;
+  white-space: nowrap; /* una sola línea */
+}
+
+/* Fuente elegante, fina pero profesional */
+.modal-card {
+  font-family: "Poppins", "Inter", sans-serif;
+  font-weight: 100;
+}
+
+.modal-card h3,
+.modal-card p {
+  color: #e8faff; /* blanco con un toque azul */
+  text-shadow: 0 0 4px rgba(90, 245, 255, 0.25); /* brillo suave */
+}
+
+/* Ajuste del contenedor Row para alinear texto con imagen */
+.modal-card .row {
+  display: flex;
+  align-items: center; /* Alinea verticalmente con la imagen */
+  gap: 1.4rem;
+}
+
+/* Título más pequeño y elegante dentro del modal */
+.modal-card h3 {
+  margin-top: 0; /* elimina el espacio que lo subía */
+  font-size: 1.05rem; /* más profesional, no tan grande */
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Descripción alineada también */
+.modal-card p {
+  margin-top: 0.2rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* TÍTULO DEL MODAL: mediano, elegante y alineado a la izquierda */
+.modal-card h3 {
+  margin-top: 0;               /* evita que suba demasiado */
+  font-size: 1.18rem;          /* tamaño mediano que resalta */
+  font-weight: 600;            /* resalta de forma profesional */
+  text-align: left;            /* NO centrado */
+  white-space: nowrap;         /* una sola línea */
+  color: #e8faff;              /* elegante con brillo suave */
+  text-shadow: 0 0 4px rgba(90, 245, 255, 0.3);
+}
+
+/* Desplazar el texto ligeramente a la izquierda dentro de cada ficha */
+.card-body {
+  padding-left: 0.1rem;   /* antes estaba más centrado, ahora queda alineado a la izquierda */
+  padding-right: 1.1rem;  /* mantenemos equilibrio sin mover el botón */
+}
+
+.top-row h2 {
+  margin-bottom: 30px; /* separación limpia */
+  font-size: 2rem;      /* opcional, mantiene jerarquía */
+  font-weight: 600;
+}
+
+.top-row h2:hover::after {
+  width: 19%;
+}
+
+
+.proyectos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.proyecto-card {
+  width: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.proyecto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-content h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.card-content button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  align-self: center;
+  margin-top: 5px;
+}
+
+.card-content button:hover {
+  background-color: #0056b3;
+}
+
+/* Contenedor centrado */
+.proyectos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* Para que quede centrado verticalmente */
+  font-family: 'Georgia', serif; /* Tipografía elegante */
+}
+
+/* Tarjeta */
+.proyecto-card {
+  width: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+  cursor: pointer;
+}
+
+/* Efecto hover dinámico */
+.proyecto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+  filter: brightness(1.1); /* Brillo al pasar el cursor */
+}
+
+.card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.card-content h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.card-content p {
+  font-size: 0.95rem;
+}
+
+.card-content button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  align-self: center;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.card-content button:hover {
+  background-color: #0056b3;
+}
+
+/* Contenedor centrado */
+.proyectos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* Centrado vertical */
+  font-family: 'Georgia', serif; /* Tipografía elegante */
+  background-color: #f5f5f5; /* Fondo neutro para resaltar las fichas */
+  padding: 2rem;
+}
+
+/* Tarjetas grandes y elegantes */
+.proyecto-card {
+  width: 350px; /* Más grande */
+  border-radius: 15px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+  cursor: pointer;
+  background-color: white;
+}
+
+/* Hover profesional */
+.proyecto-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.35);
+  border: 2px solid #ffffff; /* Brillo blanco en el borde */
+}
+
+/* Imagen */
+.card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Contenido dentro de la tarjeta */
+.card-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.card-content h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.card-content p {
+  font-size: 1rem;
+}
+
+.card-content button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  align-self: center;
+  margin-top: 8px;
+  transition: background-color 0.3s;
+}
+
+.card-content button:hover {
+  background-color: #0056b3;
+}

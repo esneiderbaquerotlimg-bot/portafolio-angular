@@ -1,0 +1,103 @@
+<!-- HEADER -->
+<header class="bg-dark text-white p-3">
+  <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+    <h1 class="h4 mb-2 mb-md-0">Mi Cine Online</h1>
+    <nav aria-label="Navegación principal">
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link text-white" href="#">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">Favoritas</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="container my-4">
+  <div class="row">
+    
+    <!-- ASIDE / FILTROS -->
+    <aside class="col-12 col-sm-4 col-md-3 mb-3">
+      <div class="card p-3">
+        <h5>Buscar y filtros</h5>
+        <input id="searchInput" type="search" class="form-control mb-2" placeholder="Buscar película..." aria-label="Buscar película">
+
+        <label for="genreSelect" class="form-label">Género</label>
+        <select id="genreSelect" class="form-select mb-2" aria-label="Filtrar por género">
+          <option value=""></option>
+        </select>
+
+        <label for="yearSelect" class="form-label">Año</label>
+        <select id="yearSelect" class="form-select mb-2" aria-label="Filtrar por año">
+          <option value=""></option>
+        </select>
+
+        <button id="clearFilters" class="btn btn-sm btn-secondary mt-2">Limpiar filtros</button>
+      </div>
+    </aside>
+
+    <!-- LISTADO -->
+    <section class="col-12 col-sm-8 col-md-9">
+      <div id="moviesRow" class="row g-3">
+        <!-- Angular insertará aquí las tarjetas desde tu servicio -->
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- MODAL DETALLE -->
+<div class="modal fade" id="movieModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Título</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body">
+        <div id="modalBodyContent">
+          <div class="row">
+            <div class="col-md-5">
+              <img id="modalPoster" src="" class="img-fluid mb-3" alt="Póster película">
+            </div>
+            <div class="col-md-7">
+              <p><strong>Año: </strong><span id="modalYear"></span></p>
+              <p><strong>Género: </strong><span id="modalGenre"></span></p>
+              <p><strong>Actores: </strong><span id="modalActors"></span></p>
+              <h6>Sinopsis</h6>
+              <p id="modalSynopsis"></p>
+              <h6>Reseña</h6>
+              <p id="modalReview"></p>
+            </div>
+          </div>
+
+          <hr>
+
+          <!-- COMENTARIOS -->
+          <section aria-label="Comentarios de usuarios">
+            <h6>Comentarios</h6>
+            <div id="commentsList"></div>
+            <div class="mt-3">
+              <textarea id="commentText" class="form-control mb-2" rows="2" placeholder="Escribe tu comentario"></textarea>
+              <div class="d-flex gap-2">
+                <select id="commentRating" class="form-select w-auto">
+                  <option value="5">5 ★</option>
+                  <option value="4">4 ★</option>
+                  <option value="3">3 ★</option>
+                  <option value="2">2 ★</option>
+                  <option value="1">1 ★</option>
+                </select>
+                <button id="addCommentBtn" class="btn btn-primary">Enviar</button>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

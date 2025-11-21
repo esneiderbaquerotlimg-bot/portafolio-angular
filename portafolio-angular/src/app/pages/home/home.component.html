@@ -1,0 +1,34 @@
+<section class="home-hero fade-up" role="main" aria-labelledby="home-title">
+  <div class="hero-left">
+    <h1 id="home-title" class="home-title">
+  <span class="typed-title">
+    Bienvenid<span class="at-sign">@</span>s
+  </span>
+  <span class="cursor">|</span>
+</h1>
+
+    <p class="home-sub" *ngIf="showSubtitle">{{ subtitle }}</p>
+
+<div class="contact-info">
+  <p><span class="label">✉ Correo:</span> <span class="value"> jg4681710@gmail.com</span></p>
+  <p><span class="label">📱 Teléfono:</span> <span class="value"> +57 3044973053</span></p>
+</div>
+
+    <div class="hero-actions">
+      <button class="btn primary" (click)="verProyectos()">Ver Proyectos</button>
+      <button class="btn outline" (click)="irContacto()">Contacto</button>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="profile-card fade-up" style="animation-delay:.35s;">
+      <img src="assets/img/yo.png" alt="Foto Julián">
+      <div class="profile-meta">
+        <h3>Julian Esneider Gutierrez Baquero</h3>
+        <p>Tecnico Profesional en Programacion de Aplicaciones de Software</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+

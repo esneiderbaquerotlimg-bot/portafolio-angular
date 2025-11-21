@@ -1,0 +1,615 @@
+.home-hero { display:flex; justify-content:space-between; gap:200px; padding:150px 70px 70px; min-height:60vh; align-items:center; }
+.hero-left { flex:1 1 60%; color:var(--white); }
+.home-title { font-size:4rem; margin:0 0 9px 0; color:var(--white); text-transform:lowercase; }
+.cursor{ color:var(--blue); margin-left:6px; animation: blink .8s infinite; }
+@keyframes blink{ 50%{ opacity:0 } }
+.home-sub{ color:var(--muted); margin-bottom:25px; }
+.profile-card { width:700px; border-radius:30px; overflow:hidden; box-shadow:0 50px 50px rgba(0,0,0,0.6); background: linear-gradient(180deg, rgba(30,144,255,0.06), rgba(0,0,0,0.16)); padding:17px; display:flex; gap:25px; align-items:center; }
+.profile-card img { width:120px; height:120px; border-radius:17px; object-fit:cover; }
+.profile-meta h3 { margin:0; color:var(--white); font-size:1.05rem; }
+.hero-actions { margin-top:40px; display:flex; gap:12px; }
+.btn { padding:15px 20px; border-radius:15px; border:none; cursor:pointer; font-weight:700; }
+.btn.primary { background: linear-gradient(90deg,var(--blue),#3aa3ff); color:rgb(255, 255, 255); box-shadow:0 10px 30px rgba(0, 128, 255, 0.12); }
+.btn.outline { background:transparent; border:2px solid rgba(255,255,255,0.06); color:var(--white); }
+@media(max-width:900px){ .home-hero{ flex-direction:column; padding:90px 18px 40px } .profile-card{ width:220px } .home-title{ font-size:2.2rem } }
+
+
+/* Contenedor general */
+.hero-container {
+  width: 100%;
+  padding: 90px 20px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Alineación del contenido */
+.hero-content {
+  text-align: center;
+  max-width: 650px;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* Título principal */
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #0a4b8f; /* azul elegante */
+  text-transform: lowercase;
+  letter-spacing: 1px;
+}
+
+/* Cursor dinámico */
+.blink {
+  color: #0077ff;
+  animation: blink 0.8s step-end infinite;
+}
+
+/* Subtítulo */
+.hero-subtitle {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Información de contacto */
+.contact-info {
+  margin: 20px 0;
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.5;
+}
+
+.contact-info strong {
+  color: #0a4b8f;
+}
+
+/* Botones */
+.hero-buttons {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.btn {
+  padding: 12px 26px;
+  border-radius: 15px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.35s ease;
+}
+
+.btn.primary {
+  background: #0a4b8f;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 90, 200, 0.35);
+}
+
+.btn.primary:hover {
+  background: #0d5fb5;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 90, 200, 0.45);
+}
+
+.btn.outline {
+  background: white;
+  color: #0a4b8f;
+  border: 2px solid #0a4b8f;
+}
+
+.btn.outline:hover {
+  background: #0a4b8f;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Animaciones */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+}
+
+/* Contenedor general */
+.contact-info {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Texto "Correo:" y "Teléfono:" */
+.contact-info .label {
+  font-weight: 500;
+  color: #ffffff !important;
+  letter-spacing: .5px;
+
+  text-shadow:
+    0 0 6px rgba(255, 255, 255, 0.7),
+    0 0 14px rgba(255, 255, 255, 0.5);
+    
+  transition: all .25s ease-in-out;
+}
+
+/* Valor (email + número) */
+.contact-info .value {
+  color: #e9e9e9 !important;   /* blanco claro */
+  font-weight: 100;
+
+  text-shadow:
+    0 0 5px rgba(255, 255, 255, 0.6),
+    0 0 12px rgba(255, 255, 255, 0.4);
+
+  transition: all .25s ease-in-out;
+}
+
+/* Hover conjunto */
+.contact-info p:hover .label,
+.contact-info p:hover .value {
+  color: #ffffff !important;
+
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 1),
+    0 0 20px rgba(255, 255, 255, 0.9),
+    0 0 28px rgba(255, 255, 255, 0.8);
+
+  transform: scale(1.02);
+}
+
+/* Línea de tecnologías: blanca, delgada y brillante */
+.hero-subtitle,
+.home-sub,
+.home-hero .hero-left p.home-sub {
+  color: #ffffff !important;
+  font-weight: 300;                /* letra delgada */
+  letter-spacing: 0.3px;
+
+  text-shadow:
+    0 0 5px rgba(255, 255, 255, 0.6),
+    0 0 12px rgba(255, 255, 255, 0.35);
+
+  transition: all .25s ease-in-out;
+}
+
+/* Hover con brillo fuerte */
+.hero-subtitle:hover,
+.home-sub:hover {
+  transform: scale(1.03);
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 1),
+    0 0 18px rgba(255, 255, 255, 0.9),
+    0 0 26px rgba(255, 255, 255, 0.7);
+}
+
+/* Texto dinámico principal */
+.typed-title {
+  color: #ffffff;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* Palito "|" */
+.cursor {
+  color: #ffffff;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Efecto hover sobre toda la zona */
+.home-title:hover .typed-title,
+.home-title:hover .cursor {
+  color: #5ab8ff; /* azul elegante */
+  text-shadow:
+    0 0 6px rgba(90, 184, 255, 0.7),
+    0 0 14px rgba(90, 184, 255, 0.5);
+}
+
+/* Opcional: pequeño zoom visual premium */
+.home-title:hover {
+  transform: scale(1.03);
+  transition: transform 0.25s ease;
+}
+
+/* Estilo base */
+.home-title {
+  font-size: 55px;
+  font-weight: 300;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Texto general */
+.typed-title {
+  transition: color 0.3s ease-in-out;
+}
+
+/* La arroba normal */
+.at-sign {
+  color: #4ab3ff;
+  transition: color 0.3s ease-in-out;
+  font-weight: 400;
+}
+
+/* Cursor */
+.cursor {
+  color: #ffffff;
+  margin-left: 5px;
+  animation: blink 0.8s infinite;
+}
+
+/* HOVER GENERAL */
+.home-title:hover .typed-title {
+  color: #4ab3ff; /* azul brillante */
+}
+
+.home-title:hover .cursor {
+  color: #4ab3ff;
+}
+
+/* HOVER ESPECIAL SOLO PARA LA @ */
+.home-title:hover .at-sign {
+  color: #ffffff !important;
+}
+
+.typed-title {
+  text-transform: none !important;
+}
+
+.home-title {
+  display: flex;
+  justify-content: flex-start;   /* Lo alinea a la izquierda */
+  padding-left: 0px;           /* Ajusta el valor según lo necesites */
+}
+
+
+/* TARJETA DEL PERFIL */
+.profile-card {
+  width: 330px;
+  padding: 26px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  text-align: center;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.45);
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardFadeIn 1.2s ease forwards;
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* HOVER SUTIL */
+.profile-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.55);
+}
+
+/* FOTO */
+.profile-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+
+  border: 4px solid rgba(255,255,255,0.25);
+  box-shadow: 0 0 24px rgba(255,255,255,0.25);
+
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fotoPopIn 1s ease forwards 0.25s;
+}
+
+/* NOMBRE */
+.profile-meta h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 6px;
+  letter-spacing: 0.3px;
+
+  opacity: 0;
+  transform: translateY(6px);
+  animation: fadeUp 0.9s ease forwards 0.45s;
+}
+
+/* TÍTULO ACADÉMICO */
+.profile-meta p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
+  font-weight: 300;
+  letter-spacing: 0.4px;
+  margin: 0;
+
+  opacity: 0;
+  transform: translateY(6px);
+  animation: fadeUp 0.9s ease forwards 0.65s;
+}
+
+/* ANIMACIONES */
+@keyframes cardFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fotoPopIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* FOTO - ANIMACIÓN PROFESIONAL */
+.profile-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 2;
+
+  border: 4px solid rgba(255,255,255,0.25);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+
+  /* Aparición inicial */
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fotoPopIn 1s ease forwards 0.25s;
+}
+
+/* ARO ANIMADO DETRÁS DE LA FOTO */
+.profile-card img::after {
+  content: "";
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  top: -10px;
+  left: -10px;
+  z-index: 1;
+
+  background: radial-gradient(circle, rgba(0,122,255,0.45), rgba(0,122,255,0.05));
+  opacity: 0;
+  transform: scale(0.6);
+  filter: blur(12px);
+
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* EFECTO PULSE ALREDEDOR DE LA FOTO */
+.profile-card .pulse-ring {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  top: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+
+  background: radial-gradient(circle, rgba(0,122,255,0.35), transparent 70%);
+  animation: pulse 2.4s infinite ease-out;
+  filter: blur(10px);
+  opacity: 0.35;
+}
+
+/* HOVER SOBRE TODA LA CARD (ACTIVA EL EFECTO AZUL) */
+.profile-card:hover img {
+  border-color: #0084ff;
+  box-shadow: 0 0 25px rgba(0,132,255,0.6);
+  transform: scale(1.05);
+}
+
+/* CÍRCULO AZUL DETRÁS SE ACTIVA EN HOVER */
+.profile-card:hover img::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ANIMACIONES KEYFRAMES */
+@keyframes pulse {
+  0% { transform: translateX(-50%) scale(0.85); opacity: 0.35; }
+  50% { transform: translateX(-50%) scale(1.1); opacity: 0.15; }
+  100% { transform: translateX(-50%) scale(0.85); opacity: 0.35; }
+}
+
+/* ================================================
+   FOTO + TARJETA (ANIMADA, PRO, SIN LÍNEAS)
+   ================================================ */
+
+.profile-card {
+  background: rgba(255,255,255,0.03);
+  border-radius: 20px;
+  padding: 22px;
+  width: 550px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+.profile-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(0,132,255,0.35);
+  background: rgba(0, 102, 255, 0.12);
+}
+
+
+/* FOTO REDONDA + ARO AZUL ANIMADO */
+
+.profile-card img {
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #007bff;
+  box-shadow: 0 0 18px rgba(0, 132, 255, 0.45);
+  margin-bottom: 14px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.4s ease;
+}
+
+/* Al pasar el cursor, aro azul → más brillante */
+
+.profile-card:hover img {
+  border-color: #57a6ff;
+  box-shadow: 0 0 30px rgba(0,132,255,0.75);
+  transform: scale(1.05);
+}
+
+
+/* ================================================
+   ANIMACIONES DEL NOMBRE Y CARGO
+   ================================================ */
+
+.profile-meta {
+  z-index: 10;
+}
+
+/* Nombre (H3) — SIN LÍNEAS + ANIMACIÓN */
+.profile-meta h3 {
+  text-decoration: none !important;
+  position: relative;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.28rem;
+  margin-bottom: 6px;
+
+  opacity: 0;
+  transform: translateY(10px);
+  animation: metaFade 0.8s ease forwards 0.55s;
+}
+
+/* Por si algún estilo oculto agrega raya */
+.profile-meta h3::before,
+.profile-meta h3::after {
+  content: none !important;
+}
+
+/* Cargo */
+.profile-meta p {
+  color: #b8c7ff;
+  font-weight: 300;
+  font-size: 0.92rem;
+
+  opacity: 0;
+  transform: translateY(10px);
+  animation: metaFade 0.8s ease forwards 0.75s;
+}
+
+
+/* Animación de entrada */
+@keyframes metaFade {
+  0%   { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Permite mover la tarjeta libremente */
+.hero-right {
+  position: relative;
+}
+
+.hero-right {
+  position: absolute;   /* la derecha ya NO está en el flex */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* No interfiere con clics */
+}
+
+.profile-card {
+  position: absolute;   /* ahora sí se mueve */
+  pointer-events: auto;
+  top: 290px;            /* mueve arriba/abajo */
+  left: 700px;           /* mueve izquierda/derecha */
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.hero-right {
+  transform: translate(12px, -60px); /* X, Y */
+}
+
+.profile-card {
+  width: 600px;     /* Aumenta el ancho */
+  padding: 18px;    /* Más espacio interno */
+}
+
+
+/* Botones estilo menú azul */
+.hero-actions .btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: rgba(0, 140, 255, 0.35);
+  border: 2px solid rgba(0, 200, 255, 0.7);
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  margin-right: 10px; /* Separación entre botones */
+}
+
+/* Hover brillante azul */
+.hero-actions .btn:hover {
+  transform: scale(1.11);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.8), 0 0 25px rgba(0, 200, 255, 0.9);
+  background: rgba(0, 160, 255, 0.55);
+}
+
+/* Si quieres un botón secundario estilo outline azul */
+.hero-actions .btn.outline {
+  background-color: transparent;
+  border: 2px solid rgba(0, 200, 255, 0.7);
+  color: #ffffff;
+}
+
+.hero-actions .btn.outline:hover {
+  background: rgba(0, 160, 255, 0.55);
+  color: #fff;
+}
+
+.home-hero {
+  margin-top: 100px; /* Ajusta este valor a tu gusto */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

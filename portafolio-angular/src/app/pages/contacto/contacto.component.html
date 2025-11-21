@@ -1,0 +1,68 @@
+<section class="contact-container reveal">
+  <div class="contact-card">
+
+    <!-- TITULAR -->
+    <header class="contact-header">
+      <h1 class="title">Contáctame</h1>
+      <p class="subtitle">Estoy disponible para proyectos, ideas o colaboraciones. Escríbeme o usa WhatsApp.</p>
+    </header>
+
+    <!-- FORMULARIO -->
+    <form [formGroup]="form" (ngSubmit)="enviar()" class="contact-form">
+
+      <!-- NOMBRE -->
+      <div class="field">
+        <label>Nombre</label>
+        <input type="text" formControlName="nombre" placeholder="Tu Nombre">
+        <small class="error" *ngIf="form.get('nombre')?.touched && form.get('nombre')?.invalid">
+          Nombre requerido (mínimo 6 caracteres)
+        </small>
+      </div>
+
+      <!-- CORREO -->
+      <div class="field">
+        <label>Correo</label>
+        <input type="email" formControlName="correo" placeholder="Tu-Email@gmail.com">
+        <small class="error" *ngIf="form.get('correo')?.touched && form.get('correo')?.invalid">
+          Debes ingresar un correo válido
+        </small>
+      </div>
+
+      <!-- MENSAJE -->
+      <div class="field">
+        <label>Mensaje</label>
+        <textarea formControlName="mensaje" rows="5" placeholder="Escribe tu mensaje..."></textarea>
+        <small class="error" *ngIf="form.get('mensaje')?.touched && form.get('mensaje')?.invalid">
+          El mensaje debe contener mínimo 50 caracteres.
+        </small>
+      </div>
+
+      <!-- BOTONES -->
+      <div class="actions">
+        <button class="btn primary" type="submit">Enviar Mensaje</button>
+        <a class="btn whatsapp" target="_blank"
+           href="https://wa.me/573044973053?text=Hola,%20Julián.%20Quisiera%20comunicarme%20contigo.">
+           WhatsApp Directo
+          </a>
+
+        <button type="button" class="btn outline" (click)="volver()">Volver</button>
+      </div>
+
+    </form>
+
+    <div class="divider"></div>   <!-- LÍNEA DIVISORIA ANIMADA -->
+
+    <!-- INFORMACIÓN DE CONTACTO EXTRA -->
+    <div class="extra-info reveal-delay">
+      <h2>Información Directa</h2>
+      <p>Correo: <strong>jg4681710@gmail.com</strong></p>
+
+      <h2>Mis Intereses</h2>
+      <div class="logos">
+        <img src="assets/img/futbol.png" alt="Fútbol">
+        <img src="assets/img/logo2.png" alt="Logo adicional">
+      </div>
+    </div>
+
+  </div>
+</section>

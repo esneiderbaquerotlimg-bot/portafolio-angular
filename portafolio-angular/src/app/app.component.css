@@ -1,0 +1,169 @@
+/* ======================== */
+/* Header */
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 25px;
+  background: rgba(5,6,10,0.9); /* semi-transparente */
+  color: #fff;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+/* Logo */
+.header .logo img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.header .logo img:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 15px #00eaff);
+}
+
+/* Título dinámico */
+.header .titulo {
+  font-size: 1.7rem;
+  margin-left: 15px;
+  font-weight: bold;
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff, 0 0 30px #00eaff;
+  animation: glow 2s infinite alternate;
+}
+
+/* Animación glow */
+@keyframes glow {
+  from { text-shadow: 0 0 5px #00eaff, 0 0 10px #00eaff; }
+  to { text-shadow: 0 0 15px #00eaff, 0 0 25px #00eaff, 0 0 35px #00eaff; }
+}
+
+/* Menú */
+.header nav {
+  display: flex;
+  gap: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.header nav .menu-link {
+  color: #00eaff;
+  font-weight: 5;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 50px;
+  background: rgba(0, 234, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0,234,255,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover dinámico */
+.header nav .menu-link:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 20px #00eaff, 0 0 30px #00eaff, 0 0 40px #00eaff;
+  background: rgba(0,234,255,0.4);
+}
+
+/* ======================== */
+/* Burbuja animada detrás */
+.bubbles-container {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bubbles-container .bubble {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: rgba(0,234,255,0.3);
+  border-radius: 50%;
+  animation: bubbleMove 6s linear infinite;
+  bottom: -50px;
+  left: calc(var(--i) * 14%);
+}
+
+@keyframes bubbleMove {
+  0% { transform: translateY(0) scale(1); opacity: 0.5; }
+  50% { transform: translateY(-60px) scale(1.2); opacity: 0.8; }
+  100% { transform: translateY(-120px) scale(1); opacity: 0.5; }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between; /* logo+título a la izquierda, menú a la derecha */
+  align-items: center;
+  padding: 15px 25px;
+  background: rgba(5,6,10,0.9); /* semi-transparente */
+  color: #fff;
+  position: relative;
+  z-index: 1000;
+}
+
+/* Logo y título juntos */
+.logo-titulo {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* espacio entre logo y título */
+}
+
+.logo {
+  width: 50px; /* ajusta según necesites */
+  height: 50px;
+}
+
+.titulo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00eaff; /* azul brillante */
+}
+
+/* Menú a la derecha */
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+  padding: 8px 15px;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 50%; /* opcional: para que la burbuja sea redonda */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover dinámico en burbuja */
+.nav-link:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px #00eaff, 0 0 25px #00eaff, 0 0 35px #00eaff;
+}
+
+/* Burbuja animada de fondo */
+.burbujas span {
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background: #00eaff;
+  border-radius: 50%;
+  animation: subir 8s infinite;
+  opacity: 0.5;
+}
+
+@keyframes subir {
+  0% { transform: translateY(0) scale(0.5); opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-200px) scale(1); opacity: 0; }
+}
