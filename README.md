@@ -11,7 +11,7 @@ El portafolio incluye los siguientes elementos:
 - **Página de Inicio:** Sección de bienvenida con información personal, contacto y enlaces a los proyectos.  
 - **Página de Contacto:** Formulario de contacto funcional con enlaces de correo y WhatsApp.  
 - **Proyectos:**  
-  - **Unidad 1 
-  - **Unidad 2 
+  - Unidad 1 
+  - Unidad 2 
 - **Routing:** Navegación implementada con Angular Router para moverse entre páginas sin recargar el navegador.  
 - **Componentes Angular:** Cada sección del portafolio está modularizada mediante componentes reutilizables.
